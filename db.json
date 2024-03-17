@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": "f124",
+      "name": "p1",
+      "price": 23452
+    }
+  ],
+  "categories": [],
+  "users": [],
+  "cart": []
+}
