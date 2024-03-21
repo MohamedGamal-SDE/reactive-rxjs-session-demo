@@ -21,78 +21,86 @@ export class CreationFunctionsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // of() Operator Example
-    /*
-    const primitive = 4;
-    const obj = { keyA: 'valueA' };
-    const arr = [1, false, ''];
+    // /**
+    //  * of() Operator Example
+    //  */
+    
+    // const primitive = 4;
+    // const obj = { keyA: 'valueA' };
+    // const arr = [1, false, ''];
 
-    of(primitive)
-      .subscribe(value => console.log(value)); // Output: 4
+    // of(primitive)
+    //   .subscribe(value => console.log(value)); // Output: 4
 
-    of(obj)
-      .subscribe(value => console.log(value)); // Output: { keyA: 'valueA' }
+    // of(obj)
+    //   .subscribe(value => console.log(value)); // Output: { keyA: 'valueA' }
 
-    of(arr)
-      .subscribe(value => console.log(value)); // Output: [1, false, '']
+    // of(arr)
+    //   .subscribe(value => console.log(value)); // Output: [1, false, '']
 
-    const multiValues = of(1, 2, 3, 'hello', { key: 'value' });
+    // const multiValues = of(1, 2, 3, 'hello', { key: 'value' });
 
-    multiValues.subscribe(value => console.log(value));
+    // multiValues.subscribe(value => console.log(value));
 
-    // Output:
-    // 1
-    // 2
-    // 3
-    // hello
-    // { key: 'value' }
-    */
-    // from() Operator Example
-    /*
-    const array = [1, 2, 3];
-    const source = from(array);
+    // // Output:
+    // // 1
+    // // 2
+    // // 3
+    // // hello
+    // // { key: 'value' }
+    
+    // /**
+    //  * from() Operator Example
+    //  */
+    
+    // const array = [1, 2, 3];
+    // const source = from(array);
 
-    source.subscribe(value => console.log(value)); // Output: 1, 2, 3
-    */
-    /*
-    // From Promise
-    const promise = new Promise(resolve => {
-      setTimeout(() => {
-        resolve('Promise Resolved');
-      }, 2000);
-    });
+    // source.subscribe(value => console.log(value)); // Output: 1, 2, 3
+    
+    
+    // // From Promise
+    // const promise = new Promise(resolve => {
+    //   setTimeout(() => {
+    //     resolve('Promise Resolved');
+    //   }, 2000);
+    // });
 
-    const sourcePromise = from(promise);
+    // const sourcePromise = from(promise);
 
-    sourcePromise.subscribe(value => console.log(value)); // Output: Promise Resolved
-    */
-    /*
-    // From Iterable Object
-    const iterable = 'Hello';
-    const sourceIterable = from(iterable);
+    // sourcePromise.subscribe(value => console.log(value)); // Output: Promise Resolved
 
-    sourceIterable.subscribe(value => console.log(value)); // Output: H, e, l, l, o
-    */
-    // fromEvent() Operator Example
-    /*
-    const el = document.getElementById('my-element')!;
+    // // From Iterable Object
+    // const iterable = 'Hello';
+    // const sourceIterable = from(iterable);
 
-    const mouseMoves = fromEvent<MouseEvent>(el, 'mousemove');
+    // sourceIterable.subscribe(value => console.log(value)); // Output: H, e, l, l, o
 
-    const subscription = mouseMoves.subscribe(evt => {
-      console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
+    // /**
+    //  * fromEvent() Operator Example
+    //  */
+    
+    // const el = document.getElementById('my-element')!;
 
-      if (evt.clientX < 40 && evt.clientY < 40) {
-        subscription.unsubscribe();
-      }
-    });
-    */
-    // interval() Operator Example
-    /*
-    const secondsCounter = interval(1000);
+    // const mouseMoves = fromEvent<MouseEvent>(el, 'mousemove');
 
-    const subscription = secondsCounter.subscribe(n =>
-      console.log(`It's been ${n + 1} seconds since subscribing!`));
-    */
+    // const subscription = mouseMoves.subscribe(evt => {
+    //   console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
+
+    //   if (evt.clientX < 40 && evt.clientY < 40) {
+    //     subscription.unsubscribe();
+    //   }
+    // });
+  
+
+    // /**
+    //  * interval() Operator Example
+    //  */
+    
+    // const secondsCounter = interval(1000);
+
+    // const intervalSubscription = secondsCounter.subscribe(n =>
+    //   console.log(`It's been ${n + 1} seconds since subscribing!`));
+    
   }
 }
