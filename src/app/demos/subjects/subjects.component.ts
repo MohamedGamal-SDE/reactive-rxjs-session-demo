@@ -5,6 +5,7 @@ import {
   ReplaySubject,
   Observable,
   AsyncSubject,
+  of,
 } from 'rxjs';
 
 @Component({
@@ -21,6 +22,10 @@ export class SubjectsComponent implements OnInit {
     // this.behaviorSubjectExample();
     // this.replaySubjectExample();
     // this.asyncSubjectExample();
+    // this.unicastObservableExample();
+    // this.multicastObservableExample();
+    // this.coldObservableExample();
+    // this.hotObservableExample();
   }
 
   // Subject as Observable Example
@@ -145,5 +150,75 @@ export class SubjectsComponent implements OnInit {
       (error) => console.error('Subscriber 2 Error:', error),
       () => console.log('Subscriber 2 Completed')
     );
+  }
+
+  // Cold Observable Example
+  coldObservableExample(): void {
+    // Creating a cold observable using the 'of' operator
+    const coldObservable = of(1, 2, 3);
+
+    // Subscribing to the observable
+    coldObservable.subscribe((value) => console.log('Subscriber 1:', value));
+
+    // Another subscription after some time
+    setTimeout(() => {
+      coldObservable.subscribe((value) => console.log('Subscriber 2:', value));
+    }, 2000);
+  }
+
+  // Hot Observable Example
+  hotObservableExample(): void {
+    // Creating a Subject to act as a hot observable
+    const hotSubject = new Subject<number>();
+
+    // Emitting values to the Subject
+    hotSubject.next(1);
+    hotSubject.next(2);
+    hotSubject.next(3);
+
+    // Subscribing to the observable
+    hotSubject.subscribe((value) => console.log('Subscriber 1:', value));
+
+    // Another subscription after some time
+    setTimeout(() => {
+      hotSubject.subscribe((value) => console.log('Subscriber 2:', value));
+    }, 2000);
+  }
+
+  // Unicast Observable Example
+  unicastObservableExample(): void {
+    // Creating a cold observable using the 'of' operator
+    const unicastObservable = of(1, 2, 3);
+
+    // Subscribing to the observable
+    unicastObservable.subscribe((value) => console.log('Subscriber 1:', value));
+
+    // Another subscription after some time
+    setTimeout(() => {
+      unicastObservable.subscribe((value) =>
+        console.log('Subscriber 2:', value)
+      );
+    }, 2000);
+  }
+
+  // Multicast Observable Example
+  multicastObservableExample(): void {
+    // Creating a Subject to multicast values
+    const multicastSubject = new Subject<number>();
+
+    // Subscribing to the subject
+    multicastSubject.subscribe((value) => console.log('Subscriber 1:', value));
+
+    // Another subscription after some time
+    setTimeout(() => {
+      multicastSubject.subscribe((value) =>
+        console.log('Subscriber 2:', value)
+      );
+    }, 2000);
+
+    // Emitting values
+    multicastSubject.next(1);
+    multicastSubject.next(2);
+    multicastSubject.next(3);
   }
 }
